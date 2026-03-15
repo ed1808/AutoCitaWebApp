@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+
+# VS Code / Visual Studio
+.vs/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# .NET backend
+Backend/**/bin/
+Backend/**/obj/
+Backend/**/out/
+TestResults/
+*.coverage
+*.coveragexml
+
+# Frontend Vite Vanilla
+Frontend/node_modules/
+Frontend/dist/
+Frontend/dist-ssr/
+Frontend/.vite/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local environment files
+*.local
+Frontend/.env
+Frontend/.env.*
+!Frontend/.env.example
+
+# IDE and miscellaneous
+.idea/
+*.ntvs*
+*.njsproj
+*.sw?

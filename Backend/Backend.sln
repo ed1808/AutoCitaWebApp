@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCita.Api", "AutoCita.Api.csproj", "{70F00E1E-89AC-532E-89A5-ACA70A2CD72E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70F00E1E-89AC-532E-89A5-ACA70A2CD72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F00E1E-89AC-532E-89A5-ACA70A2CD72E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F00E1E-89AC-532E-89A5-ACA70A2CD72E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F00E1E-89AC-532E-89A5-ACA70A2CD72E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDD96544-54EB-42C2-9828-8DBE9D50AE6C}
+	EndGlobalSection
+EndGlobal
