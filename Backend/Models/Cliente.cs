@@ -17,4 +17,5 @@ public class Cliente
 
     public TipoDocumento TipoDocumento { get; set; } = null!;
     public ICollection<Vehiculo> Vehiculos { get; set; } = [];
+    public List<Cita> Citas { get; set; } = [];
 }

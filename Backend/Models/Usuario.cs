@@ -19,4 +19,6 @@ public class Usuario
 
     public TipoDocumento TipoDocumento { get; set; } = null!;
     public Rol Rol { get; set; } = null!;
+    public List<Agenda> Agendas { get; set; } = [];
+    public List<Cita> Citas { get; set; } = [];
 }

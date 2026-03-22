@@ -14,4 +14,5 @@ public class Vehiculo
     public DateTime FechaActualizacion { get; set; }
 
     public Cliente Propietario { get; set; } = null!;
+    public List<Cita> Citas { get; set; } = [];
 }
