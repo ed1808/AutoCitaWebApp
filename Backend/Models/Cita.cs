@@ -8,18 +8,17 @@ public class Cita
 	public Guid ClienteId { get; set; }
 	public Guid UsuarioId { get; set; }
 
-	public DataTime FechaInicio { get; set; }
-	public DataTime FechaFin { get; set; }
+	public DateTime FechaInicio { get; set; }
+	public DateTime FechaFin { get; set; }
 	public decimal DuracionEst { get; set; }
-	public string EstadoCita { get; set; } = string.Empty;
-	public string MotivoCita { get; set; } = string.Empty;
+	public string? EstadoCita { get; set; }
+	public string MotivoCita { get; set; } = null!;
 	public DateTime FechaCreacion { get; set; }
 
-	public List<CitaServicio> CitaServicio { get; set; } = [];
+	public ICollection<Servicio> Servicios { get; set; } = [];
+	public ICollection<CitaServicio> CitaServicio { get; set; } = [];
     public Usuario Usuario { get; set; } = null!;
     public Agenda Agenda { get; set; } = null!;
     public Vehiculo Vehiculo { get; set; } = null!;
     public Cliente Cliente { get; set; } = null!;
-
-
 }

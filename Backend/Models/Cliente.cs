@@ -3,19 +3,19 @@ namespace AutoCita.Api.Models;
 public class Cliente
 {
     public Guid Id { get; set; }
-    public string PrimerNombre { get; set; } = string.Empty;
+    public string PrimerNombre { get; set; } = null!;
     public string? SegundoNombre { get; set; }
-    public string PrimerApellido { get; set; } = string.Empty;
+    public string PrimerApellido { get; set; } = null!;
     public string? SegundoApellido { get; set; }
-    public string NumeroDocumento { get; set; } = string.Empty;
+    public string NumeroDocumento { get; set; } = null!;
     public int TipoDocumentoId { get; set; }
-    public string Email { get; set; } = string.Empty;
-    public string Telefono { get; set; } = string.Empty;
-    public string Direccion { get; set; } = string.Empty;
+    public string Email { get; set; } = null!;
+    public string Telefono { get; set; } = null!;
+    public string Direccion { get; set; } = null!;
     public DateTime FechaCreacion { get; set; }
     public DateTime FechaActualizacion { get; set; }
 
     public TipoDocumento TipoDocumento { get; set; } = null!;
     public ICollection<Vehiculo> Vehiculos { get; set; } = [];
-    public List<Cita> Citas { get; set; } = [];
+    public ICollection<Cita> Citas { get; set; } = [];
 }

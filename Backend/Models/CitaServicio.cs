@@ -2,7 +2,6 @@
 
 public class CitaServicio
 {
-	public Guid Id { get; set; }
 	public Guid CitaId { get; set; }
 	public int ServicioId { get; set; }
 
