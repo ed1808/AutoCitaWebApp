@@ -1,0 +1,68 @@
+# .dockerignore - Excluir archivos innecesarios para optimizar build
+
+# Directorios de build y output
+bin/
+obj/
+out/
+publish/
+
+# Archivos de Visual Studio / IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+*~
+
+# Archivos de base de datos local
+*.db
+*.sqlite
+*.sqlite3
+
+# Variables de entorno locales
+.env
+.env.local
+.env.development
+.env.production
+
+# Archivos de documentación que no son necesarios en runtime
+README.md
+*.md
+docs/
+
+# Archivos de Git
+.git/
+.gitignore
+.gitattributes
+
+# Archivos de Docker
+Dockerfile*
+docker-compose*
+
+# Archivos de test
+*Test*/
+*Tests*/
+test/
+tests/
+
+# Archivos de configuración local
+appsettings.Development.json
+launchSettings.json
+
+# Archivos HTTP de prueba
+*.http
+*.rest
