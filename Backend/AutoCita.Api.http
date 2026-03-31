@@ -1,6 +1,0 @@
-@AutoCita.Api_HostAddress = http://localhost:5036
-
-GET {{AutoCita.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
