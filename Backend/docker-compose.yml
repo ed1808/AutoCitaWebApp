@@ -12,8 +12,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    networks:
-      - autocita-network
     restart: unless-stopped
 
   db:
@@ -26,21 +24,14 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d autocita"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 10s
-    networks:
-      - autocita-network
     restart: unless-stopped
 
 volumes:
   postgres_data:
-    driver: local
-
-networks:
-  autocita-network:
-    driver: bridge

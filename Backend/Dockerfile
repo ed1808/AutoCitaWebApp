@@ -49,7 +49,7 @@ RUN chown -R appuser:appgroup /app
 USER appuser
 
 # Configurar variables de entorno para optimización
-ENV ASPNETCORE_ENVIRONMENT=Production \
+ENV ASPNETCORE_ENVIRONMENT=Development \
     ASPNETCORE_URLS=http://+:8080 \
     DOTNET_RUNNING_IN_CONTAINER=true \
     DOTNET_EnableDiagnostics=0 \
