@@ -22,7 +22,13 @@
 
   <ItemGroup>
     <Folder Include="Core/" />
+    <Folder Include="Core/Exceptions/" />
+    <Folder Include="Core/Security/" />
     <Folder Include="Data/" />
+    <Folder Include="DTOs/" />
+    <Folder Include="DTOs/Rol/" />
+    <Folder Include="Interfaces/" />
+    <Folder Include="Interfaces/Repositories/" />
   </ItemGroup>
 
 </Project>
