@@ -27,8 +27,10 @@
     <Folder Include="Data/" />
     <Folder Include="DTOs/" />
     <Folder Include="DTOs/Rol/" />
+    <Folder Include="DTOs/TipoDocumentos/" />
     <Folder Include="Interfaces/" />
     <Folder Include="Interfaces/Repositories/" />
+    <Folder Include="Repositories/" />
   </ItemGroup>
 
 </Project>
