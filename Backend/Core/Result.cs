@@ -33,13 +33,17 @@ public class Result<T, E>
         _error = error;
     }
 
-    public static Result<U, F> Ok<U, F>(U? value)
+    public static Result<T, E> Ok(T? value)
     {
-        return new Result<U, F>(true, value, default);
+        return new Result<T, E>(true, value, default);
     }
 
-    public static Result<U, F> Fail<U, F>(F? error)
+    public static Result<T, E> Fail(E? error)
     {
-        return new Result<U, F>(false, default, error);
+        return new Result<T, E>(false, default, error);
     }
+
+    // Operadores de conversión implícita para facilitar la creación de resultados
+    public static implicit operator Result<T, E>(T value) => Ok(value);
+    public static implicit operator Result<T, E>(E error) => Fail(error);
 }
