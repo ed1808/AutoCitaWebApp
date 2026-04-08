@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 
-using AutoCita.Api.Core;
-using AutoCita.Api.Core.Exceptions;
 using AutoCita.Api.Data;
 using AutoCita.Api.DTOs.Usuario;
 using AutoCita.Api.Interfaces.Repositories;
@@ -106,10 +104,14 @@ public class AutenticacionRepository : IAutenticacionRepository
 
         if (rol is null)
         {
-            return new RegistrarUsuarioRespuestaDTO
+
+            rol = new Rol
             {
-                Mensaje = "El rol por defecto no está configurado en el sistema."
+                Nombre = "Admin"
             };
+
+            _dbContext.Roles.Add(rol);
+            await _dbContext.SaveChangesAsync(cancellationToken);
         }
 
         Usuario usuario = new()
