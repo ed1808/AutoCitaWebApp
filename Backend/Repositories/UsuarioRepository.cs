@@ -77,12 +77,54 @@ public class UsuarioRepository : IUsuarioRepository
             Email = usuarioDTO.Email,
             Username = usuarioDTO.Username,
             Password = _passwordHasher.HashPassword(usuarioDTO.Password),
-            RolId = usuarioDTO.RolId,
-            Activo = usuarioDTO.Activo
+            RolId = usuarioDTO.RolId
         };
 
         _dbContext.Usuarios.Add(usuario);
         await _dbContext.SaveChangesAsync(cancellationToken);
+
+        return new ListarUsuarioDTO
+        {
+            Id = usuario.Id,
+            PrimerNombre = usuario.PrimerNombre,
+            SegundoNombre = usuario.SegundoNombre,
+            PrimerApellido = usuario.PrimerApellido,
+            SegundoApellido = usuario.SegundoApellido,
+            NumeroDocumento = usuario.NumeroDocumento,
+            TipoDocumentoId = usuario.TipoDocumentoId,
+            Email = usuario.Email,
+            Username = usuario.Username,
+            RolId = usuario.RolId,
+            FechaCreacion = usuario.FechaCreacion,
+            FechaActualizacion = usuario.FechaActualizacion
+        };
+    }
+
+    public async Task<Result<bool, UsuarioNoEncontradoException>> EliminarUsuario(Guid usuarioId, CancellationToken cancellationToken)
+    {
+        Usuario? usuario = await _dbContext.Usuarios.FindAsync([usuarioId], cancellationToken: cancellationToken);
+
+        if (usuario is null)
+        {
+            return new UsuarioNoEncontradoException(usuarioId);
+        }
+
+        usuario.Activo = false;
+        _dbContext.Usuarios.Update(usuario);
+        
+        int updatedRows = await _dbContext.SaveChangesAsync(cancellationToken);
+
+        return updatedRows > 0;
+    }
+
+    public async Task<Result<ListarUsuarioDTO, UsuarioNoEncontradoException>> ObtenerUsuario(Guid usuarioId, CancellationToken cancellationToken)
+    {
+        Usuario? usuario = await _dbContext.Usuarios.FindAsync([usuarioId], cancellationToken: cancellationToken);
+
+        if (usuario is null)
+        {
+            return new UsuarioNoEncontradoException(usuarioId);
+        }
 
         return new ListarUsuarioDTO
         {
@@ -102,28 +144,13 @@ public class UsuarioRepository : IUsuarioRepository
         };
     }
 
-    public async Task<Result<bool, UsuarioNoEncontradoException>> EliminarUsuario(Guid usuarioId, CancellationToken cancellationToken)
+    public async Task<Result<ListarUsuarioDTO, UsuarioNoEncontradoException>> ObtenerUsuario(string nombreUsuario, CancellationToken cancellationToken)
     {
-        Usuario? usuario = await _dbContext.Usuarios.FindAsync([usuarioId], cancellationToken: cancellationToken);
+        Usuario? usuario = await _dbContext.Usuarios.Where(u => u.Username == nombreUsuario).FirstOrDefaultAsync(cancellationToken);
 
         if (usuario is null)
         {
-            return new UsuarioNoEncontradoException(usuarioId);
-        }
-
-        _dbContext.Usuarios.Remove(usuario);
-        int deletedRows = await _dbContext.SaveChangesAsync(cancellationToken);
-
-        return deletedRows > 0;
-    }
-
-    public async Task<Result<ListarUsuarioDTO, UsuarioNoEncontradoException>> ObtenerUsuario(Guid usuarioId, CancellationToken cancellationToken)
-    {
-        Usuario? usuario = await _dbContext.Usuarios.FindAsync([usuarioId], cancellationToken: cancellationToken);
-
-        if (usuario is null)
-        {
-            return new UsuarioNoEncontradoException(usuarioId);
+            return new UsuarioNoEncontradoException(nombreUsuario);
         }
 
         return new ListarUsuarioDTO
