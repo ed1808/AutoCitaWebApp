@@ -27,6 +27,7 @@ builder.Services.AddScoped<ITipoDocumentosRepository, TipoDocumentosRepository>(
 builder.Services.AddScoped<IAutenticacionRepository, AutenticacionRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IVehiculoRepository, VehiculoRepository>();
+builder.Services.AddScoped<IInformeRepository, InformeRepository>();
 var secretKey = builder.Configuration["ApiSettings:SecretKey"]
     ?? throw new InvalidOperationException("La clave secreta JWT no está configurada en ApiSettings:SecretKey.");
 var keyBytes = Encoding.UTF8.GetBytes(secretKey);
