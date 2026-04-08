@@ -1,11 +1,13 @@
 using AutoCita.Api.DTOs.Cita;
 using AutoCita.Api.Interfaces.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoCita.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin,Agente")]
     public class CitaController : ControllerBase
     {
         private readonly ICitaRepository _citaRepository;

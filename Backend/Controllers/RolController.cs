@@ -1,11 +1,13 @@
 using AutoCita.Api.DTOs.Rol;
 using AutoCita.Api.Interfaces.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoCita.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class RolController : ControllerBase
     {
         private readonly IRolRepository _rolRepository;

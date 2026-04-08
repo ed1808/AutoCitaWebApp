@@ -1,11 +1,13 @@
 using AutoCita.Api.DTOs.Vehiculo;
 using AutoCita.Api.Interfaces.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoCita.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class VehiculoController : ControllerBase
     {
         private readonly IVehiculoRepository _vehiculoRepository;

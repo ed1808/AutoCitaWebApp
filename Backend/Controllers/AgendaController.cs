@@ -1,11 +1,13 @@
 using AutoCita.Api.DTOs.Agenda;
 using AutoCita.Api.Interfaces.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoCita.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin,Agente")]
     public class AgendaController : ControllerBase
     {
         private readonly IAgendaRepository _agendaRepository;

@@ -1,11 +1,13 @@
 using AutoCita.Api.DTOs.Cliente;
 using AutoCita.Api.Interfaces.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoCita.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class ClienteController : ControllerBase
     {
         private readonly IClienteRepository _clienteRepository;
